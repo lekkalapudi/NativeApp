@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/famous-angular/dist/famous-angular.css"/>
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script src="lib/socket.io.js"></script>
+    <script src="lib/famous/dist/famous-global.js"></script>
+    <script src="lib/famous-angular/dist/famous-angular.js"></script>
+
+    <script src="lib/angular-socket-io/socket.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/DashboardCtrl.js"></script>
+    <script src="js/ShelfDetailsCtrl.js"></script>
+  </head>
+  <body ng-app="shelf">
+
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <a style="color: white;" class="button button-icon icon ion-search" style="color:white; height: 10px; width: 10px " ></a>
+      <a class="button button-icon icon ion-ios-bell">
+        <span class="badge badge-assertive" style="position: absolute; top: 4%; padding: 1px  6px 1px 6px; font-size: 8px; right: 5%">10</span>
+      </a>
+      <img ng-src="{{currentUser.picture.thumbnail}}" alt="" style="width:30px; height: 30px; margin-right: 10px; border-radius: 10px;"/>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+   <ion-nav-view>
+
+   </ion-nav-view>
+  </body>
+</html>

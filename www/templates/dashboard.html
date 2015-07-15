@@ -1,0 +1,84 @@
+<ion-view view-title="My Organization">
+    <ion-content class="padding" scrollbar-y="false" scroll="x">
+        <div class="row responsive-sm">
+            <div class="col col-10" style="margin-top:5px"><h5>All Shelves ({{list.length}})</h5></div>
+            <div class="col col-10" style="margin-top:7px"><button class="button button-light button-small icon ion-plus-round"></button></div>
+            <div class="col col-50" style="margin:auto"></div>
+            <div class="col col-20"><button class="button button-block button-small button-light">Sort by: <span class="bold">Recent</span></button></div>
+            <div class="col col-10"><button class="button button-block button-small button-light bold">Refine</button></div>
+        </div>
+
+        <div style="height: 400px; width: 100%;">
+            <fa-app>
+                <fa-scroll-view fa-index="0" fa-pipe-from="myEventHandler" fa-options="options.myScrollView">
+                    <fa-view ng-repeat="view in list">
+                        <fa-modifier fa-size="[300, 300]">
+                            <fa-surface
+                                    fa-pipe-to="myEventHandler">
+                                <div class="card" style="margin: 10px; height: 350px" ng-click="navigate($index)">
+                                    <div class="item item-divider" style="display: flex">
+                                        <h2 class="title"> {{view.name}}</h2>
+                                        <i  ng-class="view.isLocked ?'icon ion-locked':'icon ion-unlocked'" style="margin-top: -10px; margin-left: auto"></i>
+                                    </div>
+                                    <div class="item item-body" style="padding-top: 5px; padding-bottom: 5px;">
+                                        <div class="button-light">Last Active</div>
+                                        <ul class="images" ng-cloak>
+                                            <li ng-repeat="userIndex in view.lastactive">
+                                                <img ng-src="{{randomUsers[userIndex].user.picture.thumbnail}}" alt="" style="width:30px; height: 30px; margin-right: 5px; border-radius: 10px;"/>
+                                            </li>
+                                        </ul>
+                                        <canvas id="card{{$index}}" width="250" height="200"></canvas>
+                                        <!--{{plotChart($index)}}-->
+                                    </div>
+                                    <div class="item tabs tabs-secondary tabs-icon-left">
+                                        <a class="tab-item" href="#">
+                                            <i class="icon ion-document-text"></i>
+                                            <span class="bold">{{view.docs}}</span>/{{view.totalDocs}}
+                                        </a>
+                                        <a class="tab-item" href="#">
+                                            <i class="icon ion-clipboard"></i>
+                                            <span class="bold">{{view.tasks}}</span>/{{view.totalTasks}}
+                                        </a>
+                                        <a class="tab-item" href="#">
+                                            <i class="icon ion-calendar"></i>
+                                            <span class="bold">{{view.scheduled}}</span>/{{view.calender}}
+                                        </a>
+                                    </div>
+                                </div>
+                            </fa-surface>
+                        </fa-modifier>
+                    </fa-view>
+                </fa-scroll-view>
+            </fa-app>
+        </div>
+
+        <div style="margin-top:30px;  width: 100%">
+            <fa-app>
+                <fa-scroll-view fa-pipe-from="mySecondEventHandler" fa-options="options.myScrollView">
+                    <fa-view ng-repeat="view in list">
+                        <fa-modifier fa-size="[400, undefined]">
+                            <fa-surface
+                                    fa-pipe-to="mySecondEventHandler">
+                                <div style="height: 350px; border-top: 3px solid #B3E5FC; padding: 2px">
+                                    <div class="timeline-label-x" style="margin-top: -50px; float: left">
+                                        {{view.content}}
+                                    </div>
+                                    <div class="timeline-badge-x">
+                                        <i class="ion-icon ion-star"></i>
+                                    </div>
+                                    <div style="margin-top: 25px; ">
+                                        <ul style="list-style: none;border-left: 3px solid #387ef5 ;margin-left: 25px;">
+                                            <li style="margin-left: 5px"> Item1</li>
+                                            <li style="margin-left: 5px">Item2</li>
+                                            <li style="margin-left: 5px">Item3</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </fa-surface>
+                        </fa-modifier>
+                    </fa-view>
+                </fa-scroll-view>
+            </fa-app>
+        </div>
+    </ion-content>
+</ion-view>
