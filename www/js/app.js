@@ -23,8 +23,8 @@ angular.module('shelf', ['ionic','shelf.controllers','shelf.services','famous.an
 
 
       });
+     notificationWorkerService.setWorker(new $window.Worker('js/worker.js'));
 
-        notificationWorkerService.setWorker(new $window.Worker('js/worker.js'));
 
     }).config(function($stateProvider, $urlRouterProvider){
 

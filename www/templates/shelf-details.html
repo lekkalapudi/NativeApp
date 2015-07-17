@@ -18,12 +18,12 @@
 
                 </div>
           </div>
-          <div class="list card">
+          <div class="list card" ng-show="list.length>0">
            <div class="item" ng-repeat="item in list track by item.id">
 
               <span class="item item-content">
                   <i> <img style="height: 30px; width: 30px; border-radius: 20px; margin-top: 5px; margin-right: 5px" ng-src="{{item.image_url}}" alt=""/></i>
-                  <span style="font-weight: bold">{{item.user_name}}</span>
+                  <span style="font-weight: bold; text-transform: capitalize;">{{item.user_name}}</span>
                   <span style="font-weight: 300; margin-top: -10px;"> {{item.message}}</span>
                   <span style="font-weight: bold" class="pull-right">{{item.date | dateFilter}}</span>
               </span>
